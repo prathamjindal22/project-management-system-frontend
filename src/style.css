@@ -52,6 +52,11 @@
 
 body {
   margin: 0;
+  background-color: #f5f7fb;
+}
+
+.task-board{
+  height: 100vh;
 }
 
 h1,

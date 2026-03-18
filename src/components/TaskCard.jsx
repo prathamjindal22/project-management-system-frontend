@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const TaskCard = ({task, onStatusChange}) => {
+const TaskCard = ({ task, onStatusChange }) => {
   return (
-    <div>
-      <h4>{task.title}</h4>
-      <select value={task.status} onChange={(e) => onStatusChange(task._id, e.target.value)}>
-        <option value="todo">To Do</option>
-        <option value="in-progress">In Progress</option>
-        <option value="done">Done</option>
-      </select>
-    </div>
-  )
-}
+    <div className="card mb-3 border-0 shadow-sm">
+      <div className="card-body p-2">
+        <strong>{task.title}</strong>
 
-export default TaskCard
+        <select
+          className="form-select mt-2"
+          value={task.status}
+          onChange={(e) => onStatusChange(task._id, e.target.value)}
+        >
+          <option value="todo">Todo</option>
+          <option value="in-progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+    </div>
+  );
+};
+
+export default TaskCard;

@@ -1,33 +1,34 @@
-import React, { useEffect } from 'react'
-import { useProjectStore } from '../store/ProjectStore'
-import ProjectCard from '../components/ProjectCard';
+import React, { useEffect } from "react";
+import { useProjectStore } from "../store/ProjectStore";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
+  const projects = useProjectStore((state) => state.projects);
+  const fetchProjects = useProjectStore((state) => state.fetchProjects);
 
-    const projects = useProjectStore((state) => state.projects);
-    const fetchProjects = useProjectStore((state) => state.fetchProjects);
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
-    useEffect(() => {
-        fetchProjects();
-    },[fetchProjects])
+  console.log(projects);
 
-    console.log(projects)
+  return (
+    <div className="container mt-4">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2>Projects</h2>
 
-    return (
-        <div style={{padding: 40}}>
-            <h2>Projects</h2>
-            {
-                projects?.map((project) => {
-                    return (
-                        <ProjectCard
-                            key={project._id}
-                            project={project}
-                        />
-                    )
-                })
-            }
-        </div>
-    )
-}
+        <button className="btn btn-success">+ Create Project</button>
+      </div>
 
-export default Projects
+      <div className="row">
+        {projects.map((project) => (
+          <div className="col-md-4" key={project._id}>
+            <ProjectCard project={project} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Projects;

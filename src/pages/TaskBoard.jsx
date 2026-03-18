@@ -43,22 +43,34 @@ const Taskboard = () => {
   const done = tasks?.filter((t) => t && t.status === "done") || [];
 
   return (
-    <div style={{ display: "flex", padding: 40 }}>
-      <TaskColumn
-        title="Todo"
-        tasks={todo}
-        onStatusChange={handleStatusChange}
-      />
-      <TaskColumn
-        title="In Progress"
-        tasks={progress}
-        onStatusChange={handleStatusChange}
-      />
-      <TaskColumn
-        title="Done"
-        tasks={done}
-        onStatusChange={handleStatusChange}
-      />
+    <div className="container-fluid pt-4 px-4 task-board">
+      <h2 className="mb-4">Task Board</h2>
+
+      <div className="row">
+        <div className="col-md-4">
+          <TaskColumn
+            title="Todo"
+            tasks={todo}
+            onStatusChange={handleStatusChange}
+          />
+        </div>
+
+        <div className="col-md-4">
+          <TaskColumn
+            title="In Progress"
+            tasks={progress}
+            onStatusChange={handleStatusChange}
+          />
+        </div>
+
+        <div className="col-md-4">
+          <TaskColumn
+            title="Done"
+            tasks={done}
+            onStatusChange={handleStatusChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };
