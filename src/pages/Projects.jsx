@@ -13,7 +13,7 @@ const Projects = () => {
   console.log(projects);
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid pt-4 px-4 task-board">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Projects</h2>
 
