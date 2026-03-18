@@ -4,7 +4,7 @@ import { useTaskStore } from "../store/TaskStore";
 import socket from "../socket/socket";
 import { useParams } from "react-router-dom";
 
-const Taskboard = () => {
+const TaskBoard = () => {
   const { id } = useParams();
 
   const { tasks, fetchTasks, updateTask } = useTaskStore();
@@ -75,4 +75,4 @@ const Taskboard = () => {
   );
 };
 
-export default Taskboard;
+export default TaskBoard;
