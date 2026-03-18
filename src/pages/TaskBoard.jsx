@@ -15,6 +15,10 @@ const TaskBoard = () => {
       socket.connect();
     }
     socket.emit("joinProject", id);
+    socket.on("connect_error", () => {
+      console.log("Retrying socket...");
+      setTimeout(() => socket.connect(), 2000);
+    });
     socket.on("taskUpdated", (updatedTask) => {
       useTaskStore.setState((state) => ({
         tasks: state.tasks.map((t) =>
