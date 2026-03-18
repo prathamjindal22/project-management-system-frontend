@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import TaskColumn from "../components/TaskColumn";
-import { useTaskStore } from "../store/TaskStore";
+import { useTaskStore } from "../store/taskStore";
 import socket from "../socket/socket";
 import { useParams } from "react-router-dom";
 

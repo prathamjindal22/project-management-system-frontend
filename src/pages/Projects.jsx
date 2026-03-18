@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useProjectStore } from "../store/ProjectStore";
+import { useProjectStore } from "../store/projectStore";
 import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
